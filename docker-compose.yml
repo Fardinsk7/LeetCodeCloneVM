@@ -1,0 +1,23 @@
+version: '3.9' 
+# Specifies the Docker Compose file format version. 3.9 is the latest stable version for most use cases.
+
+services:
+  app:
+    build: .
+    ports:
+      - "5501:5501"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - NODE_ENV=production
+      - MONGO_URI=mongodb+srv://fardinsk:9136710240@cluster0.opha8bn.mongodb.net
+
+    restart: unless-stopped
+  
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped

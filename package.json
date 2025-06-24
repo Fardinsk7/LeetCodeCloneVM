@@ -1,0 +1,26 @@
+{
+  "name": "leetcode_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "author": "Fardinsk",
+  "license": "ISC",
+  "dependencies": {
+    "bullmq": "^5.54.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "joi": "^17.13.3",
+    "mongoose": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/http-errors": "^2.0.5"
+  }
+}
