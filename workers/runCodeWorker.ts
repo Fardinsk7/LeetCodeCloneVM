@@ -14,7 +14,9 @@ export const runCodeWorker = new Worker(
         const solutionfile = "solution.py";
         const runnerFile = "runner.py";
     
-        const dirPath = path.join(__dirname, "code");
+        // const dirPath = path.join(__dirname, "code");
+        const dirPath = path.join("/tmp/code", job?.id?.toString() || "default");
+
 
         if (!fs.existsSync(dirPath)) {
           fs.mkdirSync(dirPath);
