@@ -1,12 +1,21 @@
 FROM node:20-alpine
 
+# Install Docker CLI + build tools + TypeScript
+RUN apk add --no-cache docker-cli python3 make g++ \
+  && npm install -g typescript
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+COPY tsconfig.json ./
+
 RUN npm install --production
 
-COPY dist ./dist
-COPY .env ./
+# Copy source code
+COPY . .
+
+RUN npm run build
+
 
 EXPOSE 5501
 
